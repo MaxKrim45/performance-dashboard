@@ -1,0 +1,32 @@
+-- Fix RLS Security Policies
+DROP POLICY IF EXISTS "Anyone can read KPI values" ON kpi_values;
+DROP POLICY IF EXISTS "Anyone can insert KPI values" ON kpi_values;
+DROP POLICY IF EXISTS "Anyone can update KPI values" ON kpi_values;
+DROP POLICY IF EXISTS "Anyone can read checklist items" ON checklist_items;
+DROP POLICY IF EXISTS "Anyone can insert checklist items" ON checklist_items;
+DROP POLICY IF EXISTS "Anyone can update checklist items" ON checklist_items;
+DROP POLICY IF EXISTS "Anyone can read alert items" ON alert_items;
+DROP POLICY IF EXISTS "Anyone can insert alert items" ON alert_items;
+DROP POLICY IF EXISTS "Anyone can update alert items" ON alert_items;
+DROP POLICY IF EXISTS "Anyone can read monthly objectives" ON monthly_objectives;
+DROP POLICY IF EXISTS "Anyone can insert monthly objectives" ON monthly_objectives;
+DROP POLICY IF EXISTS "Anyone can update monthly objectives" ON monthly_objectives;
+DROP POLICY IF EXISTS "Anyone can read monthly performance" ON monthly_performance;
+DROP POLICY IF EXISTS "Anyone can insert monthly performance" ON monthly_performance;
+DROP POLICY IF EXISTS "Anyone can update monthly performance" ON monthly_performance;
+
+CREATE POLICY "Authenticated users can read KPI values" ON kpi_values FOR SELECT TO authenticated, anon USING (true);
+CREATE POLICY "Authenticated users can insert KPI values" ON kpi_values FOR INSERT TO authenticated, anon WITH CHECK (true);
+CREATE POLICY "Authenticated users can update KPI values" ON kpi_values FOR UPDATE TO authenticated, anon USING (true) WITH CHECK (true);
+CREATE POLICY "Authenticated users can read checklist items" ON checklist_items FOR SELECT TO authenticated, anon USING (true);
+CREATE POLICY "Authenticated users can insert checklist items" ON checklist_items FOR INSERT TO authenticated, anon WITH CHECK (true);
+CREATE POLICY "Authenticated users can update checklist items" ON checklist_items FOR UPDATE TO authenticated, anon USING (true) WITH CHECK (true);
+CREATE POLICY "Authenticated users can read alert items" ON alert_items FOR SELECT TO authenticated, anon USING (true);
+CREATE POLICY "Authenticated users can insert alert items" ON alert_items FOR INSERT TO authenticated, anon WITH CHECK (true);
+CREATE POLICY "Authenticated users can update alert items" ON alert_items FOR UPDATE TO authenticated, anon USING (true) WITH CHECK (true);
+CREATE POLICY "Authenticated users can read monthly objectives" ON monthly_objectives FOR SELECT TO authenticated, anon USING (true);
+CREATE POLICY "Authenticated users can insert monthly objectives" ON monthly_objectives FOR INSERT TO authenticated, anon WITH CHECK (true);
+CREATE POLICY "Authenticated users can update monthly objectives" ON monthly_objectives FOR UPDATE TO authenticated, anon USING (true) WITH CHECK (true);
+CREATE POLICY "Authenticated users can read monthly performance" ON monthly_performance FOR SELECT TO authenticated, anon USING (true);
+CREATE POLICY "Authenticated users can insert monthly performance" ON monthly_performance FOR INSERT TO authenticated, anon WITH CHECK (true);
+CREATE POLICY "Authenticated users can update monthly performance" ON monthly_performance FOR UPDATE TO authenticated, anon USING (true) WITH CHECK (true);
